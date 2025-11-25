@@ -5267,10 +5267,10 @@ offset_bottom = 440.0
 
 [node name="GameComplete" type="Label" parent="UI/GameCompletePopup/GameCompleteControl"]
 layout_mode = 0
-offset_left = 23.0
-offset_top = 19.0
-offset_right = 290.0
-offset_bottom = 124.0
+offset_left = 31.0
+offset_top = 27.0
+offset_right = 298.0
+offset_bottom = 132.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.9882353, 0.9372549, 0.5529412, 1)
 theme_override_constants/shadow_offset_y = 3
@@ -5284,9 +5284,9 @@ horizontal_alignment = 1
 [node name="Next" type="TextureButton" parent="UI/GameCompletePopup/GameCompleteControl"]
 layout_mode = 0
 offset_left = 95.0
-offset_top = 155.0
+offset_top = 163.0
 offset_right = 159.0
-offset_bottom = 187.0
+offset_bottom = 195.0
 scale = Vector2(2, 1.5)
 texture_normal = SubResource("AtlasTexture_jjyoh")
 texture_pressed = SubResource("AtlasTexture_vga6o")
@@ -5295,9 +5295,9 @@ texture_hover = SubResource("AtlasTexture_nrecc")
 [node name="Quit" type="TextureButton" parent="UI/GameCompletePopup/GameCompleteControl"]
 layout_mode = 0
 offset_left = 95.0
-offset_top = 219.00002
+offset_top = 227.00002
 offset_right = 157.0
-offset_bottom = 251.0
+offset_bottom = 259.0
 scale = Vector2(2, 1.5)
 texture_normal = SubResource("AtlasTexture_561i7")
 texture_pressed = SubResource("AtlasTexture_qmi0h")
