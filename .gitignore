@@ -1,0 +1,22 @@
+# Godot 4 standard
+.godot/
+.import/
+
+# Godot's imported resources cache
+*.import
+
+# Debug exports
+export_presets.cfg
+
+# Mono / C# projects (if you're not using C#, you can leave this)
+.mono/
+data_*/
+
+# System / OS / Editor junk
+.DS_Store
+Thumbs.db
+
+# Build files
+bin/
+build/
+ 

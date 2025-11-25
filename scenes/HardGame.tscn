@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=4 uid="uid://e7ndfvl6qkin"]
+[gd_scene load_steps=133 format=4 uid="uid://e7ndfvl6qkin"]
 
 [ext_resource type="Script" uid="uid://dceffjs8rpmpn" path="res://scripts/game.gd" id="1_htxhe"]
 [ext_resource type="Script" uid="uid://d3v4tl7oemggo" path="res://scripts/bridge_manager.gd" id="2_qwhqd"]
@@ -38,6 +38,10 @@
 [ext_resource type="FontFile" uid="uid://cval5q1dyjm4g" path="res://assets/Sprout Lands - UI Pack - Basic pack/emojis-free/Minecraft.ttf" id="36_khsto"]
 [ext_resource type="Texture2D" uid="uid://b1c4xvn6vep2x" path="res://assets/ui_buttons/Orange Button Text.png" id="37_je88e"]
 [ext_resource type="PackedScene" uid="uid://oevb2t5nqr0v" path="res://scenes/sound_effects.tscn" id="38_da5yq"]
+[ext_resource type="PackedScene" uid="uid://bjwfkwbki7x6m" path="res://scenes/NPC/snowy_npc.tscn" id="39_mrm3p"]
+[ext_resource type="PackedScene" uid="uid://gbnknhbovgs5" path="res://scenes/NPC/greenland_npc.tscn" id="40_1uhu7"]
+[ext_resource type="PackedScene" uid="uid://w0ba8ghrb4fi" path="res://scenes/NPC/desert_npc.tscn" id="41_a4wi3"]
+[ext_resource type="PackedScene" uid="uid://c6pnx3gn4jwoa" path="res://scenes/NPC/lava_npc.tscn" id="42_dfnyj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0qqwl"]
 texture = ExtResource("5_kvuho")
@@ -5570,6 +5574,46 @@ vertical_alignment = 1
 
 [node name="SoundEffects" parent="." instance=ExtResource("38_da5yq")]
 root_path = NodePath("../UI")
+
+[node name="snowy_npc" parent="." instance=ExtResource("39_mrm3p")]
+z_index = 3
+position = Vector2(779, 216)
+scale = Vector2(1.5, 1.5)
+
+[node name="greenland_npc" parent="." instance=ExtResource("40_1uhu7")]
+z_index = 3
+position = Vector2(127, 156.00002)
+scale = Vector2(1.5, 1.5)
+
+[node name="greenland_npc2" parent="." instance=ExtResource("40_1uhu7")]
+z_index = 3
+position = Vector2(550, 900)
+scale = Vector2(1.5, 1.5)
+
+[node name="desert_npc" parent="." instance=ExtResource("41_a4wi3")]
+z_index = 3
+position = Vector2(1748.0001, 842)
+scale = Vector2(1.5, 1.5)
+
+[node name="desert_npc2" parent="." instance=ExtResource("41_a4wi3")]
+z_index = 3
+position = Vector2(1635.0001, 177.00006)
+scale = Vector2(1.5, 1.5)
+
+[node name="lava_npc" parent="." instance=ExtResource("42_dfnyj")]
+z_index = 3
+position = Vector2(1359, 408.00003)
+scale = Vector2(1.5, 1.5)
+
+[node name="lava_npc2" parent="." instance=ExtResource("42_dfnyj")]
+z_index = 3
+position = Vector2(120, 635)
+scale = Vector2(1.5, 1.5)
+
+[node name="snowy_npc2" parent="." instance=ExtResource("39_mrm3p")]
+z_index = 3
+position = Vector2(1220, 981)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="UI/HintIcon" to="." method="_on_hint_icon_pressed"]
 [connection signal="pressed" from="UI/SettingButton" to="." method="_on_setting_button_pressed"]

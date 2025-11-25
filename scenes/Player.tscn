@@ -69,7 +69,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p0vlq"]
-radius = 7.071068
+radius = 16.492422
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6eyey"]
 atlas = ExtResource("3_3li8b")
@@ -154,7 +154,6 @@ autoplay = "new_animation"
 frame_progress = 0.4599924
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12)
 shape = SubResource("CircleShape2D_p0vlq")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]

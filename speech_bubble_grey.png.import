@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6tcfuq23gb0l"
-path="res://.godot/imported/speech_bubble_grey.png-6f46fcfd05fb98c9fae80b8bf38a6ff6.ctex"
+path="res://.godot/imported/speech_bubble_grey.png-f8f6ee9be67196bf9103fbff1dfd54fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprout Lands - UI Pack - Basic pack/emojis-free/speech_bubble_grey.png"
-dest_files=["res://.godot/imported/speech_bubble_grey.png-6f46fcfd05fb98c9fae80b8bf38a6ff6.ctex"]
+source_file="res://speech_bubble_grey.png"
+dest_files=["res://.godot/imported/speech_bubble_grey.png-f8f6ee9be67196bf9103fbff1dfd54fa.ctex"]
 
 [params]
 

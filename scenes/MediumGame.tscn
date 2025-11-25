@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=4 uid="uid://g2ffefenwfj"]
+[gd_scene load_steps=133 format=4 uid="uid://g2ffefenwfj"]
 
 [ext_resource type="Script" uid="uid://dceffjs8rpmpn" path="res://scripts/game.gd" id="1_1m53m"]
 [ext_resource type="Script" uid="uid://d3v4tl7oemggo" path="res://scripts/bridge_manager.gd" id="2_5744g"]
@@ -38,6 +38,10 @@
 [ext_resource type="FontFile" uid="uid://cval5q1dyjm4g" path="res://assets/Sprout Lands - UI Pack - Basic pack/emojis-free/Minecraft.ttf" id="36_doa3k"]
 [ext_resource type="Texture2D" uid="uid://b1c4xvn6vep2x" path="res://assets/ui_buttons/Orange Button Text.png" id="37_ncxbg"]
 [ext_resource type="PackedScene" uid="uid://oevb2t5nqr0v" path="res://scenes/sound_effects.tscn" id="38_v0hkg"]
+[ext_resource type="PackedScene" uid="uid://c6pnx3gn4jwoa" path="res://scenes/NPC/lava_npc.tscn" id="39_ncxbg"]
+[ext_resource type="PackedScene" uid="uid://w0ba8ghrb4fi" path="res://scenes/NPC/desert_npc.tscn" id="40_v0hkg"]
+[ext_resource type="PackedScene" uid="uid://bjwfkwbki7x6m" path="res://scenes/NPC/snowy_npc.tscn" id="41_nfwyt"]
+[ext_resource type="PackedScene" uid="uid://gbnknhbovgs5" path="res://scenes/NPC/greenland_npc.tscn" id="42_tes0n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0qqwl"]
 texture = ExtResource("5_0dsal")
@@ -5508,6 +5512,36 @@ vertical_alignment = 1
 
 [node name="SoundEffects" parent="." instance=ExtResource("38_v0hkg")]
 root_path = NodePath("../UI")
+
+[node name="lava_npc" parent="." instance=ExtResource("39_ncxbg")]
+z_index = 3
+position = Vector2(944, 336)
+scale = Vector2(1.5, 1.5)
+
+[node name="desert_npc" parent="." instance=ExtResource("40_v0hkg")]
+z_index = 3
+position = Vector2(1520, 816)
+scale = Vector2(1.5, 1.5)
+
+[node name="snowy_npc" parent="." instance=ExtResource("41_nfwyt")]
+z_index = 3
+position = Vector2(1536, 176)
+scale = Vector2(1.5, 1.5)
+
+[node name="greenland_npc" parent="." instance=ExtResource("42_tes0n")]
+z_index = 3
+position = Vector2(304, 248)
+scale = Vector2(1.5, 1.5)
+
+[node name="greenland_npc2" parent="." instance=ExtResource("42_tes0n")]
+z_index = 3
+position = Vector2(896.00006, 944.00006)
+scale = Vector2(1.5, 1.5)
+
+[node name="snowy_npc2" parent="." instance=ExtResource("41_nfwyt")]
+z_index = 3
+position = Vector2(352, 720)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="UI/SettingButton" to="." method="_on_setting_button_pressed"]
 [connection signal="pressed" from="UI/HintIcon" to="." method="_on_hint_icon_pressed"]

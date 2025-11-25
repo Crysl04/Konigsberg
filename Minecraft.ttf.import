@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cval5q1dyjm4g"
-path="res://.godot/imported/Minecraft.ttf-9ce0fe7f10ea4386d5a8dc5351bec3de.fontdata"
+path="res://.godot/imported/Minecraft.ttf-b4cc597ac42d1410cc55dc192f0c0e34.fontdata"
 
 [deps]
 
-source_file="res://assets/Sprout Lands - UI Pack - Basic pack/emojis-free/Minecraft.ttf"
-dest_files=["res://.godot/imported/Minecraft.ttf-9ce0fe7f10ea4386d5a8dc5351bec3de.fontdata"]
+source_file="res://Minecraft.ttf"
+dest_files=["res://.godot/imported/Minecraft.ttf-b4cc597ac42d1410cc55dc192f0c0e34.fontdata"]
 
 [params]
 
