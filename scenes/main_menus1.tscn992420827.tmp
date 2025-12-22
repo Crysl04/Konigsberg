@@ -1,0 +1,140 @@
+[gd_scene load_steps=17 format=3 uid="uid://b37n3qauhc5ul"]
+
+[ext_resource type="Script" uid="uid://bc77kpwwb4ka4" path="res://scripts/main_menus_1.gd" id="1_tyxci"]
+[ext_resource type="Texture2D" uid="uid://lb6apk5lo7h3" path="res://assets/main_menu_button.PNG" id="2_btehd"]
+[ext_resource type="Texture2D" uid="uid://bwh1d12k2ihiw" path="res://assets/2151793122.jpg" id="2_eu7es"]
+[ext_resource type="FontFile" uid="uid://cao6fc07gbkor" path="res://assets/Sprout Lands - UI Pack - Basic pack/emojis-free/SuperPixel-m2L8j.ttf" id="3_u574i"]
+[ext_resource type="Script" uid="uid://8s32fcrtxxxf" path="res://scenes/label.gd" id="4_383p6"]
+[ext_resource type="PackedScene" uid="uid://oevb2t5nqr0v" path="res://scenes/sound_effects.tscn" id="5_ng430"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u574i"]
+texture = ExtResource("2_eu7es")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btehd"]
+atlas = ExtResource("2_btehd")
+region = Rect2(82, 205, 820, 369)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_btehd"]
+load_path = "res://.godot/imported/main_menu_button.PNG-e43ea79893570f4521c7d9273bb52eec.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu7es"]
+atlas = SubResource("CompressedTexture2D_btehd")
+region = Rect2(984, 205, 820, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u574i"]
+atlas = ExtResource("2_btehd")
+region = Rect2(82, 656, 820, 369)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eu7es"]
+load_path = "res://.godot/imported/main_menu_button.PNG-e43ea79893570f4521c7d9273bb52eec.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_383p6"]
+atlas = SubResource("CompressedTexture2D_eu7es")
+region = Rect2(984, 656, 820, 369)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ng430"]
+atlas = ExtResource("2_btehd")
+region = Rect2(82, 1107, 820, 369)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_appct"]
+load_path = "res://.godot/imported/main_menu_button.PNG-e43ea79893570f4521c7d9273bb52eec.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngp6l"]
+atlas = SubResource("CompressedTexture2D_appct")
+region = Rect2(984, 1107, 820, 369)
+
+[node name="MainMenus1" type="Node2D"]
+script = ExtResource("1_tyxci")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1090.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_u574i")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 560.0
+offset_top = 316.0
+offset_right = 1476.0
+offset_bottom = 378.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.95686275, 0.72156864, 0.4392157, 1)
+theme_override_colors/font_shadow_color = Color(0.36282945, 0.36282945, 0.36282945, 1)
+theme_override_constants/shadow_offset_y = 12
+theme_override_fonts/font = ExtResource("3_u574i")
+theme_override_font_sizes/font_size = 57
+text = "The Königsberg Challenge"
+script = ExtResource("4_383p6")
+
+[node name="ButtonManager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 37.0
+offset_top = 104.0
+offset_right = 77.0
+offset_bottom = 144.0
+
+[node name="Start" type="TextureButton" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 793.00006
+offset_top = 308.0
+offset_right = 1613.0
+offset_bottom = 677.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_btehd")
+texture_hover = SubResource("AtlasTexture_eu7es")
+
+[node name="ChooseLevel" type="TextureButton" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 794.0
+offset_top = 457.0
+offset_right = 1614.0
+offset_bottom = 826.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_u574i")
+texture_hover = SubResource("AtlasTexture_383p6")
+
+[node name="Exit" type="TextureButton" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 794.0
+offset_top = 610.0
+offset_right = 1614.0
+offset_bottom = 979.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture_normal = SubResource("AtlasTexture_ng430")
+texture_hover = SubResource("AtlasTexture_ngp6l")
+
+[node name="SoundEffects" parent="." instance=ExtResource("5_ng430")]
+root_path = NodePath("../ButtonManager")
+
+[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="ButtonManager/ChooseLevel" to="." method="_on_choose_level_pressed"]
+[connection signal="pressed" from="ButtonManager/Exit" to="." method="_on_exit_pressed"]

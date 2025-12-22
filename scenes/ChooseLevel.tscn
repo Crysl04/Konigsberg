@@ -1,0 +1,190 @@
+[gd_scene load_steps=16 format=3 uid="uid://t1racbykwssr"]
+
+[ext_resource type="Script" uid="uid://i0xwuac8gbdq" path="res://scripts/chooselevel.gd" id="1_q81kp"]
+[ext_resource type="Texture2D" uid="uid://bwh1d12k2ihiw" path="res://assets/2151793122.jpg" id="2_iayfq"]
+[ext_resource type="FontFile" uid="uid://cval5q1dyjm4g" path="res://assets/Sprout Lands - UI Pack - Basic pack/emojis-free/Minecraft.ttf" id="3_swvgm"]
+[ext_resource type="Texture2D" uid="uid://unvvq1nfnbhb" path="res://assets/ui_buttons/Orange Button Icons.png" id="4_f43ed"]
+[ext_resource type="PackedScene" uid="uid://oevb2t5nqr0v" path="res://scenes/sound_effects.tscn" id="5_bh3oa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_swvgm"]
+texture = ExtResource("2_iayfq")
+
+[sub_resource type="Theme" id="Theme_f43ed"]
+default_font = ExtResource("3_swvgm")
+default_font_size = 27
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bh3oa"]
+bg_color = Color(0.95686275, 0.7254902, 0.44705883, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.20871013, 0.20871016, 0.20871013, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_swvgm"]
+bg_color = Color(0.95686275, 0.7254902, 0.44705883, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.20871013, 0.20871016, 0.20871013, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f43ed"]
+bg_color = Color(0.90908325, 0.6433476, 0.3069514, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0.20871013, 0.20871016, 0.20871013, 0.6)
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bh3oa"]
+atlas = ExtResource("4_f43ed")
+region = Rect2(1, 225, 30, 30)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f674u"]
+load_path = "res://.godot/imported/Orange Button Icons.png-fbccedd8009ca42a6e29898889255cd0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb8x0"]
+atlas = SubResource("CompressedTexture2D_f674u")
+region = Rect2(65, 225, 30, 30)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p0nt8"]
+load_path = "res://.godot/imported/Orange Button Icons.png-fbccedd8009ca42a6e29898889255cd0.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mjtt"]
+atlas = SubResource("CompressedTexture2D_p0nt8")
+region = Rect2(33, 225, 30, 30)
+
+[node name="ChooseLevel" type="Node2D"]
+script = ExtResource("1_q81kp")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1090.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_swvgm")
+metadata/_edit_lock_ = true
+
+[node name="ButtonManager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme = SubResource("Theme_f43ed")
+
+[node name="Easy" type="Button" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 836.0
+offset_top = 420.0
+offset_right = 1119.0
+offset_bottom = 494.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9955804, 0.99558026, 0.99558026, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bh3oa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_swvgm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f43ed")
+text = "Easy"
+
+[node name="Medium" type="Button" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 836.0
+offset_top = 540.0
+offset_right = 1119.0
+offset_bottom = 614.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9955804, 0.99558026, 0.99558026, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bh3oa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_swvgm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f43ed")
+text = "Medium
+"
+
+[node name="Hard" type="Button" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 836.0
+offset_top = 652.0
+offset_right = 1119.0
+offset_bottom = 726.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.9955804, 0.99558026, 0.99558026, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_bh3oa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_swvgm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f43ed")
+text = "Hard
+"
+
+[node name="Back" type="TextureButton" parent="ButtonManager"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 732.0
+offset_top = 364.0
+offset_right = 764.0
+offset_bottom = 394.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture_normal = SubResource("AtlasTexture_bh3oa")
+texture_pressed = SubResource("AtlasTexture_jb8x0")
+texture_hover = SubResource("AtlasTexture_5mjtt")
+
+[node name="SoundEffects" parent="." instance=ExtResource("5_bh3oa")]
+root_path = NodePath("../ButtonManager")
+
+[connection signal="pressed" from="ButtonManager/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="ButtonManager/Medium" to="." method="_on_medium_pressed"]
+[connection signal="pressed" from="ButtonManager/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="ButtonManager/Back" to="." method="_on_back_pressed"]
