@@ -93,26 +93,28 @@ func _ready():
 	var max_attempts := 100
 	var attempts := 0
 
+	# Continously generates graph until a solvable one is generated.
 	while attempts < max_attempts:
-		bridge_manager.clear_bridges()
+		bridge_manager.clear_bridges() # Bridges are cleared if the generated puzzle turns out to be unsolvable.
 		bridge_manager.create_bridges_between(island_nodes)
 
 		current_island = island_nodes.keys().pick_random()
 
-		if is_puzzle_solvable():
+		if is_puzzle_solvable(): #checks if the current puzzle is solvable. If if it is, the loop stop, if not, the loop continues.
 			break
 
 		attempts += 1
 
-	if attempts >= max_attempts:
+	if attempts >= max_attempts: 
 		push_error("❌ Failed to generate a solvable puzzle!")
 		return
 
+	# positions the player to the current island.
 	player.global_position = island_nodes[current_island].get_node("EntranceArea").global_position
 	print("🎮 Solvable puzzle generated. Start island:", current_island)
 
 
-	# Store original state
+	# Store original state for future uses such as restarting the game.
 	original_start_island = current_island
 	original_bridges = []
 	for key in bridge_manager.bridges.keys():
@@ -134,7 +136,7 @@ func _ready():
 	if quit_btn_win:
 		quit_btn_win.pressed.connect(Callable(self, "_on_quit_pressed"))
 
-	# Connect buttons
+	# Connect buttons - calls the designated functions for when the buttons are clicked.
 	if hint_button:
 		hint_button.pressed.connect(Callable(self, "_on_hint_pressed"))
 	if auto_solve_button:
@@ -146,11 +148,11 @@ func _on_island_clicked(target_island: String) -> void:
 		SoundEffects.ui_sfx_play("wrong_move")
 
 		return
-	if target_island == current_island:
+	if target_island == current_island: 
 		SoundEffects.ui_sfx_play("wrong_move")
 
 		return
-	if not bridge_manager.has_bridge(current_island, target_island):
+	if not bridge_manager.has_bridge(current_island, target_island): # checks whether the target island is connected to the current island position.
 		print("⛔ No valid bridge from %s to %s" % [current_island, target_island])
 
 		# Shake the island the player clicked
@@ -162,7 +164,7 @@ func _on_island_clicked(target_island: String) -> void:
 		return
 	await move_to_island(target_island)
 	
-
+# if target island is connected to the current island, moves the player to the targetted island.
 func move_to_island(target_island: String) -> void:
 	moving = true
 	
@@ -177,13 +179,13 @@ func move_to_island(target_island: String) -> void:
 
 	# Update bridges and current island
 	moving = false
-	bridge_manager.remove_bridge(current_island, target_island)
-	current_island = target_island
+	bridge_manager.remove_bridge(current_island, target_island) #removes the bridges connecting the previous current and target island.
+	current_island = target_island # current island becomes the previously targetted island
 	print("🏝️ Arrived at:", current_island)
 
 	check_game_state()
 
-# Game State
+# Checks whether the game is alredy over or completed.
 func check_game_state() -> void:
 	if bridge_manager.total_bridges_left() == 0:
 		gamecomplete_popup.popup_centered()
@@ -235,6 +237,7 @@ func _on_hint_pressed() -> void:
 	show_message("💡 " + msg)
 	hint_popup_menu.hide()
 
+# auto-solver hint.
 func _on_auto_solve_pressed() -> void:
 	var solution = get_eulerian_path({}, current_island)
 	await animate_solution(solution)
@@ -242,6 +245,7 @@ func _on_auto_solve_pressed() -> void:
 
 # Eulerian Logic
 func is_puzzle_solvable() -> bool:
+	# Uses Eulerian path rules to validate puzzle
 	var graph = bridge_manager.get_graph_copy(island_nodes)
 		
 	var odd_nodes = []
@@ -252,7 +256,8 @@ func is_puzzle_solvable() -> bool:
 		return false
 	if odd_nodes.size() == 2 and not odd_nodes.has(current_island):
 		return false
-		
+
+	# Check graph connectivity using DFS
 	var visited = {}
 	for island in graph.keys():
 		if graph[island].size() > 0:
@@ -271,7 +276,7 @@ func is_puzzle_solvable() -> bool:
 		
 	return true
 
-#Checks connectivity between islands
+#Checks connectivity between islands using depth-first search
 func dfs(node: String, graph: Dictionary, visited: Dictionary) -> void:
 	visited[node] = true
 	for neighbor in graph[node]:
@@ -300,23 +305,32 @@ func shake_island(island: Node, intensity := 10.0, duration := 0.15):
 
 # Returns the optimal path for the puzzle. Used for Hints and Auto-Solver
 func get_eulerian_path(graph_param: Dictionary = {}, start_island: String = "") -> Array:
+
+	# Local copy of the graph so the original graph is not modified
 	var graph = {}
+
+	# If no graph is passed, copy the current game graph from BridgeManager
 	if graph_param.size() == 0:
 		graph = bridge_manager.get_graph_copy(island_nodes)
 	else:
+		# Deep copy the passed graph to safely modify it
 		for key in graph_param.keys():
 			graph[key] = graph_param[key].duplicate()
 
+	# Determine starting island (use given start or current player location)
 	var start = start_island if start_island != "" else current_island
 	var path = []
 	var stack = [start]
 
+	# Continue until there are no nodes left to process
 	while stack.size() > 0:
+		# Get the current island (top of stack)
 		var v = stack[-1] # returns the top element of stack
-		if graph[v].size() > 0:
+		if graph[v].size() > 0: # If the island still has unused bridges
+			# Select and remove a connected island (edge)
 			var u = graph[v].pop_front()
-			graph[u].erase(v) 
-			stack.append(u)
+			graph[u].erase(v) # Remove reverse edge to avoid reuse
+			stack.append(u) # Move to the connected island
 		else:
 			path.append(stack.pop_back()) # appends the Island at the path array and removes it in the stack array
 	path.reverse()
